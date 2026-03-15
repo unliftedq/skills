@@ -14,11 +14,24 @@ Ship these when they make sense for the brand system:
 
 If a variant is omitted, say why.
 
+## Primary Icon Background Rule
+
+When the `primary` variant is an app icon or contained icon:
+
+- use either a transparent background or a background that fills the full icon silhouette/canvas
+- do not place the symbol on an inset rounded rectangle or other partial background plate that leaves an outer gutter while preserving separate corner rounding
+- default to square corners for the full icon container
+- only use rounded corners when the user explicitly requests a platform-specific app-tile treatment
+
+Avoid constructions like a smaller rounded rectangle centered inside the SVG with empty space around it. That reads as an accidental mockup plate rather than a finished icon background.
+
 ## Default Formats
 
 ### SVG
 
 Always prefer SVG as the editable master.
+
+SVG source assets should follow `svg-implementation.md`, especially for silhouette clarity, restrained geometry, and small-size legibility.
 
 ### PNG
 
@@ -88,5 +101,7 @@ When finishing, explain:
 
 - which file is the editable source of truth
 - which assets are optimized for favicon or app-icon use
+- whether the `primary` icon uses a transparent background or a full-canvas fill
+- whether the `primary` icon keeps square corners or uses user-requested corner rounding
 - what background was used for JPG exports
 - any missing exports and why they were skipped

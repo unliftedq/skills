@@ -40,6 +40,8 @@ If the user has provided enough context to move forward, do not stall with broad
 
 Read `references/logo-directions.md`.
 
+Before drawing final SVG assets, also read `references/svg-implementation.md`.
+
 Before drawing the logo, propose 2-3 directions that are meaningfully different in tone or structure. For each direction, include:
 
 - one-line concept summary
@@ -57,6 +59,7 @@ Recommend one direction unless the user clearly wants to choose first.
    - If the user says "just pick one", "choose for me", or gives no preference signal, proceed with the recommended direction immediately.
    - If the eval or prompt says to choose autonomously, state the chosen direction and continue.
 4. Produce the logo system in editable SVG form.
+  - Follow the SVG implementation constraints in `references/svg-implementation.md`.
 5. Create the delivery package defined in `references/delivery-spec.md`.
 6. Use `scripts/export-logo-assets.cjs` to export raster assets when SVG sources are ready.
 7. Return a concise delivery summary describing what each asset is for.
@@ -134,6 +137,10 @@ Notes:
 
 - The mark should remain legible at small sizes.
 - The icon version should still work without the wordmark.
+- Primary icon backgrounds must be intentional: use either a fully filled icon canvas or a transparent background, never an inset rounded rectangle that leaves a visible outer margin.
+- Primary icons should default to square-edged canvases. Do not add rounded corners unless the user explicitly asks for a platform-specific rounded container.
+- SVG icon construction should feel clean, restrained, and production-ready rather than illustrative or decorative.
+- Prefer a polished minimalist icon language similar in discipline to high-quality open-source icon systems: simple silhouette, balanced spacing, limited primitives, and no ornamental filler.
 - The SVG should avoid unnecessary complexity that makes later editing painful.
 - Favicon output should prioritize clarity over detail.
 
@@ -143,8 +150,11 @@ Before finishing, verify:
 
 - [ ] Directions were proposed and one was selected (unless export-only)
 - [ ] SVG source is editable and avoids unnecessary complexity
+- [ ] SVG source follows the implementation constraints in `references/svg-implementation.md`
 - [ ] Mark variant works without the wordmark
 - [ ] Mark stays legible at 32px
+- [ ] Primary icon does not use a partial rounded-background plate; any background fill covers the full icon shape or the icon remains transparent
+- [ ] Primary icon does not add rounded corners unless the brief explicitly asks for them
 - [ ] Favicon output prioritizes clarity over detail
 - [ ] Export manifest was generated and matches delivered files
 - [ ] Delivery summary lists every variant and its formats
@@ -154,6 +164,7 @@ Before finishing, verify:
 
 - Input routing: `references/input-routing.md`
 - Direction patterns: `references/logo-directions.md`
+- SVG implementation rules: `references/svg-implementation.md`
 - Delivery package rules: `references/delivery-spec.md`
 
 ## Evaluation
