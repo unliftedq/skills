@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!--
+    UnliftedQ Skills — Mark
+    Concept: Skill Block — four quadrants with a stepped channel.
+    The vertical split shifts between top and bottom rows,
+    creating a diagonal symmetry (180° rotational) and an
+    S/Z-shaped negative-space channel that implies flow
+    and composability.
+
+    Grid: 512×512, 48px padding, 24px gap.
+    Split ratio 60:40 on width, equal height.
+    Top-left and bottom-right are wide blocks (235px);
+    Top-right and bottom-left are narrow blocks (157px).
+  -->
+  <!-- Top-left block (wide) -->
+  <rect x="48" y="48" width="235" height="196" fill="#E8553A"/>
+  <!-- Top-right block (narrow) -->
+  <rect x="307" y="48" width="157" height="196" fill="#2EC4B6"/>
+  <!-- Bottom-left block (narrow) -->
+  <rect x="48" y="268" width="157" height="196" fill="#5B5FE5"/>
+  <!-- Bottom-right block (wide) -->
+  <rect x="229" y="268" width="235" height="196" fill="#F4B942"/>
+</svg>

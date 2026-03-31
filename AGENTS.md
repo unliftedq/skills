@@ -80,22 +80,9 @@ This maps to W3C Design Tokens Community Group JSON format with `$value` and `$t
 
 ## Existing Skills
 
-### design-system
-Generates design tokens from screenshots, text prompts, brand briefs, or existing CSS/Tailwind codebases. Produces CSS custom properties and Tailwind configurations with light/dark theme support.
-
-- Entry: `skills/design-system/SKILL.md`
-- Scripts: `generate-tokens.cjs`, `validate-tokens.cjs`
-- Templates: `design-tokens-starter.json`, `brand-presets.json`
-
-### ui-prototype
-Creates polished UI prototypes using HTML and TailwindCSS. Always establishes design tokens first via the `design-system` skill. Supports mobile app, web, and desktop platform modes.
-
-- Entry: `skills/ui-prototype/SKILL.md`
-- References: `platform-guidelines.md`, `app-guidelines.md`, `web-guidelines.md`, `desktop-guidelines.md`
-
 ### logo-creator
-Creates original logos from text briefs, reference images, or both, then packages editable and export-ready brand assets including SVG, PNG, JPG, and favicon outputs.
+Creates production-ready logo systems from text briefs, reference images, or both. Uses geometric construction principles and a structured generation pipeline (parse → conceptualize → typeface → lockups → build → export) to produce SVG vector logos with raster exports.
 
 - Entry: `skills/logo-creator/SKILL.md`
 - Scripts: `export-logo-assets.cjs` (lib: `export-logo-assets-lib.cjs`)
-- References: `input-routing.md`, `logo-directions.md`, `delivery-spec.md`
+- References: `geometry.md`, `typography.md`, `lockups.md`, `modernism.md`

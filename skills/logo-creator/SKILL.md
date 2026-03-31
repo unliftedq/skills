@@ -6,88 +6,110 @@ argument-hint: "[brand brief, app name, reference image path, or export request]
 
 # Logo Creator
 
-Create original logos and ship them as a practical asset package rather than a single mockup.
+Create production-ready logo systems from natural language input, reference images, or both, and ship them as a usable asset package.
 
-## When to Use
+## Scope
 
-- Application logo creation
-- Startup or product brand mark design
-- App icon plus wordmark systems
-- Favicon and reusable logo asset export
-- Refreshing an existing logo based on references
-- Producing SVG-first brand assets for product, web, or document use
+Use this skill for four kinds of work:
 
-## Principles
+1. Create a new logo system from a text brief.
+2. Create or refresh a logo using reference images as style signals.
+3. Redesign an existing logo while preserving some brand equity.
+4. Package existing SVG logo assets into export-ready deliverables.
 
-- Create original work. Do not imitate, trace, or closely mimic protected brand logos.
-- Push toward SVG as the source of truth so the output stays editable.
-- Package deliverables for real usage, not just presentation.
-- Ask only for the smallest missing information set that materially affects the result.
+The default system includes:
 
-## Input Routing
+- `mark` — icon-only symbol in a square container
+- `vertical` — stacked lockup (icon above, brand name below)
+- `horizontal` — side-by-side lockup (icon left, brand name right)
 
-Read `references/input-routing.md`.
+Do not produce a standalone wordmark (text-only, no icon). Outlined text alone carries no distinctive brand identity — the brand name is already present in the lockup variants.
 
-Determine which input mode applies:
+If a requested variant does not make sense, omit it and say why.
 
-- text brief
-- reference images
-- mixed brief plus references
+## Non-Negotiables
 
-If the user has provided enough context to move forward, do not stall with broad discovery questions. Offer 2-3 directions and recommend one.
+- Keep the idea singular. The logo should have one memorable move, not several competing ones.
+- Design in black first. If the form fails in monochrome, it is not ready.
+- Keep the mark original. Use references for direction, never for imitation.
+- Make the mark survive small sizes, especially favicon and app-icon use.
+- Outline wordmarks before delivery. Do not ship live text in SVGs.
+- Keep icon containers square. Pad when needed; never distort the symbol to fill the square.
 
-## Direction Setting
+For the detailed reasoning and construction rules behind these constraints, read:
 
-Read `references/logo-directions.md`.
+- `references/geometry.md` for shape logic and SVG implementation rules
+- `references/typography.md` for wordmark selection and treatment
+- `references/lockups.md` for lockup structure, spacing, and delivery variants
+- `references/modernism.md` for reduction and timelessness principles
 
-Before drawing final SVG assets, also read `references/svg-implementation.md`.
+## Workflow
 
-Before drawing the logo, propose 2-3 directions that are meaningfully different in tone or structure. For each direction, include:
+### 1. Parse the request
 
-- one-line concept summary
-- why it fits the brand or app
-- a tradeoff or risk
+Extract the smallest set of information needed to proceed:
 
-Recommend one direction unless the user clearly wants to choose first.
+- brand or product name
+- what it does
+- intended tone or audience
+- whether it must function as an app icon
+- whether the user wants concept exploration, a redesign, or export-only help
 
-## Creation Workflow
+Treat reference images as style signals, not templates to reproduce.
 
-1. Detect the input mode.
-2. Fill only critical missing context.
-3. Propose 2-3 directions and recommend one.
-   - If the user explicitly asks to choose, present directions and wait for their selection before proceeding.
-   - If the user says "just pick one", "choose for me", or gives no preference signal, proceed with the recommended direction immediately.
-   - If the eval or prompt says to choose autonomously, state the chosen direction and continue.
-4. Produce the logo system in editable SVG form.
-  - Follow the SVG implementation constraints in `references/svg-implementation.md`.
-5. Create the delivery package defined in `references/delivery-spec.md`.
-6. Use `scripts/export-logo-assets.cjs` to export raster assets when SVG sources are ready.
-7. Return a concise delivery summary describing what each asset is for.
+Ask follow-up questions only when missing information would materially change the result. Do not block on low-value discovery work such as long backstory or competitor analysis.
 
-## Output Expectations
+Routing:
 
-Read `references/delivery-spec.md`.
+- If the user only wants exports for existing SVGs, skip concept development and go straight to packaging.
+- If the brief is strong enough, move directly to concept directions.
+- If the brief is weak but recoverable, ask for the smallest missing set and continue.
 
-Default package:
+### 2. Set directions
 
-- primary logo
-- icon-only mark
-- wordmark-only version when the brand name supports it
-- horizontal lockup
-- vertical lockup
+When the user needs ideation, propose 2-3 directions that differ structurally, not just stylistically. For each direction, include:
 
-Default exported formats:
+- a one-line concept summary
+- why it fits the brand or product
+- one tradeoff or risk
 
-- SVG
-- transparent PNG
-- JPG on a solid background
-- favicon `.ico`
+Typical direction families:
 
-If a requested variant does not make design sense, say so explicitly and explain what was shipped instead.
+- symbol-led
+- monogram or letterform-led
+- emblem or combination-led
 
-## Export Script
+Recommend one direction by default.
 
-Use this script when you have one or more SVG sources ready:
+- If the user wants to choose, wait for selection.
+- If the user says to pick, or gives no preference signal, state the recommended direction and proceed.
+
+### 3. Build the mark
+
+Read `references/geometry.md` before constructing the icon.
+
+Build from simple geometric logic:
+
+1. Choose the base shape language.
+2. Translate the brand idea into a single visual move.
+3. Reduce until the silhouette reads instantly.
+4. Check that the symbol still works at small sizes.
+5. Keep the icon in a square container without stretching it.
+
+### 4. Build lockups
+
+Read `references/typography.md` before choosing type treatment for lockups.
+Read `references/lockups.md` before constructing variants.
+
+Choose a type direction that supports the symbol instead of competing with it. Keep the text simple when the symbol carries the distinction. Convert all text to outlined SVG paths.
+
+Create the variants that are actually useful for the brief. At minimum, provide a symbol-only mark and one primary lockup. Add horizontal or vertical variants when they improve usability across product, web, or document contexts.
+
+### 5. Package and export
+
+Use `scripts/export-logo-assets.cjs` once the SVG sources are ready.
+
+Single-input example:
 
 ```bash
 node scripts/export-logo-assets.cjs \
@@ -96,77 +118,78 @@ node scripts/export-logo-assets.cjs \
   --name acme
 ```
 
-If you pass only `--input`, the script exports that SVG as the `primary` logo. Use repeated `--variant key=path/to/file.svg` arguments when you want a multi-variant delivery tree.
-
 Multi-variant example:
 
 ```bash
 node scripts/export-logo-assets.cjs \
   --variant mark=./mark.svg \
-  --variant horizontal=./lockup.svg \
+  --variant vertical=./vertical.svg \
+  --variant horizontal=./horizontal.svg \
   --output out/logos \
   --name acme
 ```
 
-The script:
+The script writes SVG deliverables, attempts PNG and JPG exports when supported by the local toolchain, creates favicon assets when rasterization succeeds, and emits `export-manifest.json` with outputs and warnings.
 
-- copies SVG sources into a delivery tree
-- tries to rasterize PNG assets using available local tools
-- derives JPG exports with the requested background when the local toolchain supports flattening, otherwise it warns and falls back to the safest supported behavior
-- writes favicon `.ico` when PNG rasterization succeeds
-- emits `export-manifest.json` with outputs and warnings
+Do not claim raster files exist unless the script actually produced them.
 
-If local rasterization tools are unavailable, the script still writes SVG deliverables and a warning manifest. Do not claim PNG, JPG, or favicon files exist unless the script actually produced them.
+## Response Format
 
-## Delivery Summary Format
+When you deliver work, keep the response compact and concrete:
 
-Include a short summary like this:
+1. State the chosen concept direction.
+2. Summarize the mark and type treatment decisions.
+3. List the variants delivered.
+4. List the formats actually produced.
+5. Call out any skipped exports or constraints.
+
+Example:
 
 ```text
+Direction:
+- Symbol-led concept based on a folded triangle that suggests forward motion and precision.
+
 Delivered:
-- primary logo: svg, png, jpg
-- icon mark: svg, png, favicon
-- horizontal lockup: svg, png, jpg
+- mark
+- horizontal
+- vertical
+
+Formats produced:
+- SVG for all variants
+- PNG for mark and horizontal
+- favicon assets from the mark
 
 Notes:
-- PNG and favicon were exported successfully
-- JPG uses a white background for broad compatibility
+- JPG was skipped because local flattening support was unavailable.
 ```
 
-## Quality Bar
+## Checklist
 
-- The mark should remain legible at small sizes.
-- The icon version should still work without the wordmark.
-- Primary icon backgrounds must be intentional: use either a fully filled icon canvas or a transparent background, never an inset rounded rectangle that leaves a visible outer margin.
-- Primary icons should default to square-edged canvases. Do not add rounded corners unless the user explicitly asks for a platform-specific rounded container.
-- SVG icon construction should feel clean, restrained, and production-ready rather than illustrative or decorative.
-- Prefer a polished minimalist icon language similar in discipline to high-quality open-source icon systems: simple silhouette, balanced spacing, limited primitives, and no ornamental filler.
-- The SVG should avoid unnecessary complexity that makes later editing painful.
-- Favicon output should prioritize clarity over detail.
+Before delivering, verify:
 
-## Output Checklist
+- [ ] The concept is singular and easy to describe.
+- [ ] The logo works in black.
+- [ ] The mark remains legible at small sizes.
+- [ ] The icon container is square and undistorted.
+- [ ] All text in SVGs is outlined (no live text).
+- [ ] The chosen variants match the user's real usage needs.
+- [ ] The SVGs follow the implementation guidance in `references/geometry.md`.
+- [ ] Any claimed exports are present in `export-manifest.json`.
+- [ ] Missing variants or formats are explained.
 
-Before finishing, verify:
+## Anti-Patterns
 
-- [ ] Directions were proposed and one was selected (unless export-only)
-- [ ] SVG source is editable and avoids unnecessary complexity
-- [ ] SVG source follows the implementation constraints in `references/svg-implementation.md`
-- [ ] Mark variant works without the wordmark
-- [ ] Mark stays legible at 32px
-- [ ] Primary icon does not use a partial rounded-background plate; any background fill covers the full icon shape or the icon remains transparent
-- [ ] Primary icon does not add rounded corners unless the brief explicitly asks for them
-- [ ] Favicon output prioritizes clarity over detail
-- [ ] Export manifest was generated and matches delivered files
-- [ ] Delivery summary lists every variant and its formats
-- [ ] Any skipped exports are explained
+- copying or closely mimicking existing brand logos
+- multiple ideas fighting inside one mark
+- literal clip-art style symbols with no reduction
+- decorative effects that carry the design instead of the form
+- over-detailed geometry that collapses at small sizes
+- fake inset background plates inside icon canvases
+- rounded icon containers unless the user explicitly asks for them
 
 ## References
 
-- Input routing: `references/input-routing.md`
-- Direction patterns: `references/logo-directions.md`
-- SVG implementation rules: `references/svg-implementation.md`
-- Delivery package rules: `references/delivery-spec.md`
-
-## Evaluation
-
-Initial prompts live in `evals/evals.json`.
+- Geometric foundations and SVG rules: `references/geometry.md`
+- Typography selection and treatment: `references/typography.md`
+- Lockup construction and delivery variants: `references/lockups.md`
+- Modernist reduction principles: `references/modernism.md`

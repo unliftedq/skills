@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 120">
+  <!--
+    UnliftedQ Skills — Horizontal Lockup
+    Icon (96×96) left, "SKILLS" wordmark right.
+    Wordmark: geometric block sans, outlined paths, 12px stroke, 72px cap height.
+    viewBox fitted to content with 10% safe area.
+  -->
+
+  <!-- === Icon (96×96 at position 51,12) === -->
+  <!-- Top-left block (wide) -->
+  <rect x="60" y="21" width="44" height="37" fill="#E8553A"/>
+  <!-- Top-right block (narrow) -->
+  <rect x="109" y="21" width="29" height="37" fill="#2EC4B6"/>
+  <!-- Bottom-left block (narrow) -->
+  <rect x="60" y="62" width="29" height="37" fill="#5B5FE5"/>
+  <!-- Bottom-right block (wide) -->
+  <rect x="94" y="62" width="44" height="37" fill="#F4B942"/>
+
+  <defs>
+    <linearGradient id="wm-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8553A"/>
+      <stop offset="33%" stop-color="#5B5FE5"/>
+      <stop offset="66%" stop-color="#2EC4B6"/>
+      <stop offset="100%" stop-color="#F4B942"/>
+    </linearGradient>
+  </defs>
+
+  <!-- === Wordmark "SKILLS" at x=195, y=24 === -->
+  <path fill-rule="evenodd" fill="url(#wm-grad)" d="
+    M195,24 H237 V96 H195 Z
+    M207,36 V54 H237 V36 Z
+    M195,66 V84 H225 V66 Z
+
+    M245,24 H257 V96 H245 Z
+    M257,54 L295,24 L295,36 L257,66 Z
+    M257,54 L257,66 L295,84 L295,96 Z
+
+    M303,24 H315 V96 H303 Z
+
+    M323,24 H335 V84 H363 V96 H323 Z
+
+    M371,24 H383 V84 H411 V96 H371 Z
+
+    M419,24 H461 V96 H419 Z
+    M431,36 V54 H461 V36 Z
+    M419,66 V84 H449 V66 Z
+  "/>
+</svg>

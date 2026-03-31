@@ -76,12 +76,14 @@ function pickPreferredRasterizer(availableCommands) {
 }
 
 function commandExists(command) {
-  const probe = spawnSync('/bin/sh', ['-lc', `command -v ${command}`], {
-    encoding: 'utf8'
-  });
+  const isWindows = process.platform === 'win32';
+  const probe = isWindows
+    ? spawnSync('where', [command], { encoding: 'utf8', windowsHide: true })
+    : spawnSync('/bin/sh', ['-lc', `command -v ${command}`], { encoding: 'utf8' });
 
   if (probe.status === 0) {
-    return probe.stdout.trim() || command;
+    const result = probe.stdout.trim().split(/\r?\n/)[0];
+    return result || command;
   }
 
   return null;

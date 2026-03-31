@@ -1,0 +1,47 @@
+{
+  "output_dir": "examples\\logo-creator\\output\\logos",
+  "rasterizer": "magick",
+  "warnings": [],
+  "variants": [
+    {
+      "key": "mark",
+      "source": "examples\\logo-creator\\output\\unliftedq-skills-mark.svg",
+      "outputs": [
+        "examples\\logo-creator\\output\\logos\\mark\\unliftedq-skills-mark.svg",
+        "examples\\logo-creator\\output\\logos\\mark\\unliftedq-skills-mark-16.png",
+        "examples\\logo-creator\\output\\logos\\mark\\unliftedq-skills-mark-32.png",
+        "examples\\logo-creator\\output\\logos\\mark\\unliftedq-skills-mark-48.png",
+        "examples\\logo-creator\\output\\logos\\mark\\unliftedq-skills-mark-64.png",
+        "examples\\logo-creator\\output\\logos\\mark\\unliftedq-skills-mark-128.png",
+        "examples\\logo-creator\\output\\logos\\mark\\unliftedq-skills-mark-256.png",
+        "examples\\logo-creator\\output\\logos\\mark\\unliftedq-skills-mark-512.png",
+        "examples\\logo-creator\\output\\logos\\mark\\unliftedq-skills-mark-1024.png",
+        "examples\\logo-creator\\output\\logos\\mark\\unliftedq-skills-mark-1024.jpg",
+        "examples\\logo-creator\\output\\logos\\mark\\favicon-16.png",
+        "examples\\logo-creator\\output\\logos\\mark\\favicon-32.png",
+        "examples\\logo-creator\\output\\logos\\mark\\favicon-48.png",
+        "examples\\logo-creator\\output\\logos\\mark\\favicon.ico"
+      ]
+    },
+    {
+      "key": "horizontal",
+      "source": "examples\\logo-creator\\output\\unliftedq-skills-horizontal.svg",
+      "outputs": [
+        "examples\\logo-creator\\output\\logos\\horizontal\\unliftedq-skills-horizontal.svg",
+        "examples\\logo-creator\\output\\logos\\horizontal\\unliftedq-skills-horizontal-512.png",
+        "examples\\logo-creator\\output\\logos\\horizontal\\unliftedq-skills-horizontal-1024.png",
+        "examples\\logo-creator\\output\\logos\\horizontal\\unliftedq-skills-horizontal-1024.jpg"
+      ]
+    },
+    {
+      "key": "vertical",
+      "source": "examples\\logo-creator\\output\\unliftedq-skills-vertical.svg",
+      "outputs": [
+        "examples\\logo-creator\\output\\logos\\vertical\\unliftedq-skills-vertical.svg",
+        "examples\\logo-creator\\output\\logos\\vertical\\unliftedq-skills-vertical-512.png",
+        "examples\\logo-creator\\output\\logos\\vertical\\unliftedq-skills-vertical-1024.png",
+        "examples\\logo-creator\\output\\logos\\vertical\\unliftedq-skills-vertical-1024.jpg"
+      ]
+    }
+  ]
+}
