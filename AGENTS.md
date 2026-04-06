@@ -87,6 +87,11 @@ Creates production-ready logo systems from text briefs, reference images, or bot
 - Scripts: `export-logo-assets.cjs` (lib: `export-logo-assets-lib.cjs`)
 - References: `geometry.md`, `typography.md`, `lockups.md`, `modernism.md`
 
+### subtitle-transcribe
+Transcribes speech from video or audio files into timed subtitle files using Whisper (openai-whisper by default). Extracts audio via mkvextract (MKV) or ffmpeg (other formats), runs transcription, and delivers SRT/VTT/ASS output. Optionally remuxes back into the video container.
+
+- Entry: `skills/subtitle-transcribe/SKILL.md`
+
 ### subtitle-translator
 Extracts embedded subtitle tracks from video files, translates them via subagents, and optionally remuxes translated subtitles back into the container. Supports MKV, MP4, MOV, M4V.
 
