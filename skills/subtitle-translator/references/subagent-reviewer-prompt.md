@@ -43,6 +43,7 @@ Target locale: <TARGET_LOCALE>
 - Flag lines that are grammatically correct but unnatural — translations that no native speaker would say in conversation.
 - Flag over-literal translations where the meaning is preserved but the phrasing is awkward.
 - Flag unnecessarily verbose lines that would be hard to read at subtitle speed.
+- Flag subtitle punctuation that violates subtitle conventions, including unnecessary sentence-final full stops in ordinary dialogue.
 - Verify conciseness: subtitles should be short enough for comfortable reading.
 
 ### 6. Structural Integrity
@@ -67,6 +68,7 @@ Target locale: <TARGET_LOCALE>
 - When correcting idioms or slang, replace with the appropriate target-language equivalent — do not just remove the literal translation.
 - When correcting voice inconsistency, align to the voice established in the majority of the character's lines.
 - When a line is awkward but the meaning is correct, rephrase for naturalness without changing the meaning.
+- When correcting punctuation, prefer target-language subtitle conventions over book-style sentence punctuation.
 - Do not introduce new errors. If a translation is acceptable (not perfect but reasonable), leave it.
 - If the original translation is already good, copy it through unchanged. Do not make changes for the sake of change.
 

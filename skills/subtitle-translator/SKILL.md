@@ -152,6 +152,7 @@ Use subagents to translate the extracted subtitle text. The reusable prompt temp
 - Speaker separation, line breaks, and multi-speaker line splits — preserve as-is.
 - Formatting control codes and markup — do not translate as text.
 - Subtitle punctuation, music markers, and speaker prefixes — keep when meaningful.
+- Follow subtitle-style punctuation norms rather than book-style punctuation. In ordinary dialogue, do not add sentence-final full stops by default, regardless of language, unless clarity or source effect requires it.
 - Prefer natural, idiomatic target-language rendering over word-for-word glosses.
 - Translate slang and idioms into target-language equivalents — never translate literally.
 - Maintain consistent character voice throughout each speaker's lines.
@@ -163,6 +164,7 @@ After translation, launch a reviewer subagent to check and correct the translate
 The reviewer:
 
 - Compares the translated file against the source for context fidelity, idiom handling, character voice consistency, terminology, naturalness, and structural integrity.
+- Checks that subtitle-ending punctuation follows subtitle conventions, including avoiding unnecessary sentence-final full stops in ordinary dialogue.
 - Produces a corrected subtitle file and a brief review report with correction count and categories.
 - If the correction count is zero, the translated file is used as-is.
 - If corrections were made, the reviewed file replaces the translated file as the final deliverable.

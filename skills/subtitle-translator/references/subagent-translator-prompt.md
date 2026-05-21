@@ -45,6 +45,7 @@ Let context drive every word choice. Two characters saying the same English word
 
 - Keep names, places, organizations, supernatural terms, and recurring story concepts consistent across the whole file.
 - Keep subtitle phrasing concise enough for subtitle reading speed; avoid unnecessary expansion.
+- Follow subtitle-style punctuation conventions rather than book-style sentence punctuation. In ordinary dialogue, do not append sentence-final full stops by default, regardless of language, unless clarity, source emphasis, or a non-dialogue text style clearly requires it. Keep meaningful question marks, exclamation marks, ellipses, dashes, and interruption marks.
 - Preserve ambiguity when the source is intentionally ambiguous.
 - Do not translate formatting control codes or markup as plain text.
 - If the source contains invented terms, choose the most context-appropriate rendering and keep it consistent.
@@ -63,6 +64,7 @@ Let context drive every word choice. Two characters saying the same English word
 - Verify no source text remains untranslated unless it is a deliberate proper noun or retained expression.
 - Verify terminology and character voice stay consistent throughout the file.
 - Verify slang and idioms are rendered as target-language equivalents, not literal translations.
+- Verify subtitle-ending punctuation follows subtitle conventions; ordinary dialogue should usually not end with an added full stop.
 
 Completion response:
 - Return only: completed + output path.
