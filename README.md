@@ -1,12 +1,20 @@
 # Agent Skills
 
-A collection of skills for AI coding agents. Skills are packaged instructions, references, scripts, and templates that extend agent capabilities across branding, UI prototyping, subtitle transcription, and subtitle translation workflows.
+A collection of skills for AI coding agents. Skills are packaged instructions, references, scripts, and templates that extend agent capabilities across picturebook creation, branding, UI prototyping, subtitle transcription, and subtitle translation workflows.
 
 This repository is designed to host multiple skills that can be activated on demand for specific task domains.
 
 Skills follow the [Agent Skills](https://agentskills.io/) format.
 
 ## Available Skills
+
+### draw-a-picturebook
+
+Creates complete illustrated children's picturebooks from story ideas, with review-per-step or fully automated execution modes.
+
+- Entry: `skills/draw-a-picturebook/SKILL.md`
+- Scripts: `merge-pdf.cjs`, `merge-slides.cjs`
+- References: `brief-age-format-guide.md`, `visual-style-guide.md`, `image-generation-handoff.md`, `character-design-guide.md`
 
 ### logo-creator
 
@@ -50,6 +58,7 @@ Skills are automatically available once installed. The agent should activate the
 
 **Examples:**
 ```text
+Create a fully automated 12-page picturebook about a moon rabbit for ages 4-6 as a PDF.
 Create a logo system for a developer tool called QuillStack.
 Translate the embedded English subtitles in movie.mkv to zh-CN and give me an .srt file.
 Transcribe this interview.mp4 into English subtitles and keep the output as .srt.

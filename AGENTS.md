@@ -80,6 +80,13 @@ This maps to W3C Design Tokens Community Group JSON format with `$value` and `$t
 
 ## Existing Skills
 
+### draw-a-picturebook
+Creates a complete illustrated children's picturebook from an idea. Collects the brief (story direction, age group 1-3/4-6/7-9/10+, art style, page count, aspect ratio, output format), then runs review-gated stages: story (`story.md`) → storyboard (`storyboard.md`) → character designs (`characters/`) → per-page illustrations (`picturebook/1.png`…) → cover (`cover.png`) → merge into PDF or PPTX. Detects an available image generation capability first and asks the user to choose one if none exists.
+
+- Entry: `skills/draw-a-picturebook/SKILL.md`
+- Scripts: `merge-pdf.cjs`, `merge-slides.cjs` (lib: `image.cjs`, `zip.cjs`) — pure Node.js built-ins, no dependencies
+- References: `brief-age-format-guide.md`, `visual-style-guide.md`, `image-generation-handoff.md`, `character-design-guide.md`
+
 ### logo-creator
 Creates production-ready logo systems from text briefs, reference images, or both. Uses geometric construction principles and a structured generation pipeline (parse → conceptualize → typeface → lockups → build → export) to produce SVG vector logos with raster exports.
 
