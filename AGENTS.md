@@ -4,7 +4,7 @@ This file provides guidance to AI coding agents (Claude Code, Cursor, Copilot, e
 
 ## Repository Overview
 
-A collection of skills for AI coding agents. Skills are packaged instructions, references, scripts, and templates that extend agent capabilities across branding, UI prototyping, subtitle transcription, and subtitle translation workflows.
+A collection of skills for AI coding agents. Skills are packaged instructions, references, scripts, and templates that extend agent capabilities across branding, UI prototyping, manga production, subtitle transcription, and subtitle translation workflows.
 
 ## Creating a New Skill
 
@@ -86,6 +86,13 @@ Creates a complete illustrated children's picturebook from an idea. Collects the
 - Entry: `skills/draw-a-picturebook/SKILL.md`
 - Scripts: `merge-pdf.cjs`, `merge-slides.cjs` (lib: `image.cjs`, `zip.cjs`) — pure Node.js built-ins, no dependencies
 - References: `brief-age-format-guide.md`, `visual-style-guide.md`, `image-generation-handoff.md`, `character-design-guide.md`
+
+### mangaka
+Creates manga, comics, manhua, manhwa, webtoon episodes, one-shots, chapters, or 4-koma from a story idea. Collects the brief (target audience/rating, format, reading direction, art or artist-style reference, black-and-white/color mode, single-page layout preference, page/beat count, lettering route, output format), then runs review-gated stages: treatment (`treatment.md`) → manga script (`script.md`) → `name` storyboard (`name/storyboard.md`) → character designs (`characters/`) → per-page prompts (`prompts/pages/`) → finished pages (`manga/1.png`…) → cover (`cover.png`) → package as images, CBZ, PDF, slides, or prompt pack. Detects image generation and lettering capability first.
+
+- Entry: `skills/mangaka/SKILL.md`
+- Scripts: `package-cbz.cjs` (writes `ComicInfo.xml` with reading direction), `merge-pdf.cjs`, `merge-slides.cjs`, `validate-manga-package.cjs` (lib: `image.cjs`, `zip.cjs`) — pure Node.js built-ins, no dependencies
+- References: `image-generation-handoff.md`, `manga-storyboard-guide.md`, `visual-style-guide.md`, `lettering-and-sfx-guide.md`, `character-design-guide.md`
 
 ### logo-creator
 Creates production-ready logo systems from text briefs, reference images, or both. Uses geometric construction principles and a structured generation pipeline (parse → conceptualize → typeface → lockups → build → export) to produce SVG vector logos with raster exports.
